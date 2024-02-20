@@ -1,22 +1,22 @@
 <?php
 
-namespace VendorName\Skeleton;
+namespace AdminKit\Vacancy;
 
 use Filament\Contracts\Plugin;
 use Filament\Panel;
-use VendorName\Skeleton\UI\Filament\Resources\SingleNameResource;
+use AdminKit\Vacancy\UI\Filament\Resources\VacancyResource;
 
 class FilamentPlugin implements Plugin
 {
     public function getId(): string
     {
-        return 'filament-plugin-:package_slug';
+        return 'filament-plugin-admin-kit-vacancy';
     }
 
     public function register(Panel $panel): void
     {
         $panel->resources([
-            SingleNameResource::class,
+            VacancyResource::class,
         ]);
     }
 
