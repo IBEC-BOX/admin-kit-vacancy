@@ -3,9 +3,9 @@
 namespace AdminKit\Vacancy\Models;
 
 use AdminKit\Core\Abstracts\Models\AbstractModel;
+use AdminKit\Vacancy\Database\Factories\VacancyFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\Translatable\HasTranslations;
-use AdminKit\Vacancy\Database\Factories\VacancyFactory;
 
 class Vacancy extends AbstractModel
 {

@@ -2,10 +2,10 @@
 
 namespace AdminKit\Vacancy;
 
-use Spatie\LaravelPackageTools\Package;
-use Spatie\LaravelPackageTools\PackageServiceProvider;
 use AdminKit\Vacancy\Commands\VacancyCommand;
 use AdminKit\Vacancy\Providers\RouteServiceProvider;
+use Spatie\LaravelPackageTools\Package;
+use Spatie\LaravelPackageTools\PackageServiceProvider;
 
 class VacancyServiceProvider extends PackageServiceProvider
 {

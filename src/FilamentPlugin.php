@@ -2,9 +2,9 @@
 
 namespace AdminKit\Vacancy;
 
+use AdminKit\Vacancy\UI\Filament\Resources\VacancyResource;
 use Filament\Contracts\Plugin;
 use Filament\Panel;
-use AdminKit\Vacancy\UI\Filament\Resources\VacancyResource;
 
 class FilamentPlugin implements Plugin
 {
