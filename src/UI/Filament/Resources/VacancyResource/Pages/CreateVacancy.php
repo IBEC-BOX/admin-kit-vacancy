@@ -2,8 +2,8 @@
 
 namespace AdminKit\Vacancy\UI\Filament\Resources\VacancyResource\Pages;
 
-use Filament\Resources\Pages\CreateRecord;
 use AdminKit\Vacancy\UI\Filament\Resources\VacancyResource;
+use Filament\Resources\Pages\CreateRecord;
 
 class CreateVacancy extends CreateRecord
 {
