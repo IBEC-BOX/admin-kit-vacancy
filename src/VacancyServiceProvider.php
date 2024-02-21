@@ -21,7 +21,10 @@ class VacancyServiceProvider extends PackageServiceProvider
             ->hasConfigFile()
             ->hasViews()
             ->hasTranslations()
-            ->hasMigration('create_admin_kit_vacancy_table')
+            ->hasMigrations([
+                'create_admin_kit_vacancy_table',
+                'create_admin_kit_vacancy_gallery_table',
+            ])
             ->hasCommand(VacancyCommand::class);
     }
 

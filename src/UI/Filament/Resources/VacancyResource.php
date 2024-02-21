@@ -8,6 +8,7 @@ use AdminKit\Vacancy\UI\Filament\Resources\VacancyResource\Pages;
 use Filament\Forms;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use AdminKit\Vacancy\UI\Filament\Resources\VacancyResource\RelationManagers\VacancyGalleryRelationManager;
 
 class VacancyResource extends Resource
 {
@@ -19,10 +20,25 @@ class VacancyResource extends Resource
     {
         return $form
             ->schema([
+                Forms\Components\SpatieMediaLibraryFileUpload::make('background')
+                    ->label(__('admin-kit-vacancy::vacancy.resource.image'))
+                    ->collection('main')
+                    ->image()
+                    ->columnSpan(2)
+                    ->required(),
                 TranslatableTabs::make(fn ($locale) => Forms\Components\Tabs\Tab::make($locale)->schema([
-                    Forms\Components\TextInput::make('title')
+                    Forms\Components\TextInput::make('title.'.$locale)
                         ->label(__('admin-kit-vacancy::vacancy.resource.title'))
-                        ->required($locale === app()->getLocale()),
+                        ->required(),
+                    Forms\Components\TextInput::make('subtitle.'.$locale)
+                        ->label(__('admin-kit-vacancy::vacancy.resource.subtitle'))
+                        ->required(),
+                    Forms\Components\Section::make(__('admin-kit-vacancy::vacancy.resource.action_button'))->schema([
+                        Forms\Components\TextInput::make('action_title.'.$locale)
+                            ->label(__('admin-kit-vacancy::vacancy.resource.title')),
+                        Forms\Components\TextInput::make('action_link.'.$locale)
+                            ->label(__('admin-kit-vacancy::vacancy.resource.link')),
+                    ])->columns(2),
                 ])),
             ])
             ->columns(1);
@@ -57,7 +73,7 @@ class VacancyResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            VacancyGalleryRelationManager::class,
         ];
     }
 
@@ -80,8 +96,13 @@ class VacancyResource extends Resource
         return __('admin-kit-vacancy::vacancy.resource.plural_label');
     }
 
-    public static function getNavigationGroup(): ?string
+    public static function getNavigationUrl(): string
     {
-        return __('admin-kit-vacancy::vacancy.resource.plural_label');
+        $vacancy = Vacancy::query()
+            ->first();
+
+        return $vacancy
+            ? route('filament.admin-kit.resources.vacancies.edit', $vacancy)
+            : route('filament.admin-kit.resources.vacancies.create');
     }
 }

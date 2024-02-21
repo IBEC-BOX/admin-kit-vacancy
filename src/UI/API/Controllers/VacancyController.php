@@ -5,16 +5,15 @@ declare(strict_types=1);
 namespace AdminKit\Vacancy\UI\API\Controllers;
 
 use AdminKit\Vacancy\Models\Vacancy;
+use AdminKit\Vacancy\UI\API\Resources\VacancyResource;
 
 class VacancyController extends Controller
 {
-    public function index()
+    public function showFirst(): VacancyResource
     {
-        return Vacancy::all();
-    }
+        $vacancies = Vacancy::query()
+            ->first();
 
-    public function show(int $id)
-    {
-        return Vacancy::findOrFail($id);
+        return new VacancyResource($vacancies);
     }
 }
