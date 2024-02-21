@@ -2,13 +2,13 @@
 
 namespace AdminKit\Vacancy\UI\Filament\Resources\VacancyResource\RelationManagers;
 
-use Filament\Forms;
-use Filament\Tables;
-use Filament\Forms\Form;
-use Filament\Tables\Table;
-use Filament\Forms\Components\Tabs\Tab;
 use AdminKit\Core\Forms\Components\TranslatableTabs;
+use Filament\Forms;
+use Filament\Forms\Components\Tabs\Tab;
+use Filament\Forms\Form;
 use Filament\Resources\RelationManagers\RelationManager;
+use Filament\Tables;
+use Filament\Tables\Table;
 
 class VacancyGalleryRelationManager extends RelationManager
 {

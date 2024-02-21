@@ -5,10 +5,10 @@ namespace AdminKit\Vacancy\UI\Filament\Resources;
 use AdminKit\Core\Forms\Components\TranslatableTabs;
 use AdminKit\Vacancy\Models\Vacancy;
 use AdminKit\Vacancy\UI\Filament\Resources\VacancyResource\Pages;
+use AdminKit\Vacancy\UI\Filament\Resources\VacancyResource\RelationManagers\VacancyGalleryRelationManager;
 use Filament\Forms;
 use Filament\Resources\Resource;
 use Filament\Tables;
-use AdminKit\Vacancy\UI\Filament\Resources\VacancyResource\RelationManagers\VacancyGalleryRelationManager;
 
 class VacancyResource extends Resource
 {
