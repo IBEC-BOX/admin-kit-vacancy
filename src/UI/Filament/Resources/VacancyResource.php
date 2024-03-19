@@ -25,7 +25,9 @@ class VacancyResource extends Resource
                     ->collection('main')
                     ->image()
                     ->columnSpan(2)
-                    ->required(),
+                    ->required()
+                    ->optimize('webp')
+                    ->resize(30),
                 TranslatableTabs::make(fn ($locale) => Forms\Components\Tabs\Tab::make($locale)->schema([
                     Forms\Components\TextInput::make('title.'.$locale)
                         ->label(__('admin-kit-vacancy::vacancy.resource.title'))
